@@ -1,0 +1,82 @@
+[
+  {
+    "username": "admin",
+    "password": "123456",
+    "role": "admin"
+  },
+  {
+    "username": "201",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "202",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "203",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "204",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "205",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "301",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "302",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "303",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "304",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "305",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "401",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "402",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "403",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "404",
+    "password": "1234",
+    "role": "user"
+  },
+  {
+    "username": "405",
+    "password": "1234",
+    "role": "user"
+  }
+]
