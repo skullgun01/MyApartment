@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/padding_20dp"
+    tools:context=".view.user.detail.UserDetailFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLineImageContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_apartment"
+        app:layout_constraintBottom_toBottomOf="@+id/guideLineImageContent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAlert"
+        style="@style/text_16sp_black"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_20dp"
+        android:layout_marginBottom="@dimen/padding_5dp"
+        android:text="@string/label_alert"
+        app:layout_constraintBottom_toTopOf="@+id/tvAlertMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideLineImageContent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAlertMessage"
+        style="@style/text_16sp_black"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_edit_text"
+        android:gravity="center|top"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/tvRule"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlert"
+        tools:text="ทดสอบ" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRule"
+        style="@style/text_16sp_black"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_20dp"
+        android:layout_marginBottom="@dimen/padding_5dp"
+        android:text="@string/label_rule"
+        app:layout_constraintBottom_toTopOf="@id/tvRuleMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlertMessage" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRuleMessage"
+        style="@style/text_16sp_black"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_edit_text"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRule"
+        tools:text="ทดสอบ" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

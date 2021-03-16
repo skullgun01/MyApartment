@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <font
+        android:font="@font/kanit"
+        app:font="@font/kanit"
+        tools:targetApi="o" />
+
+    <font
+        android:font="@font/kanit_bold"
+        app:font="@font/kanit_bold"
+        tools:targetApi="o" />
+
+</font-family>

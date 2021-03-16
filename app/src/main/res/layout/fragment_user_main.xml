@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_20dp"
+    tools:context=".view.user.main.UserMainFragment">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPayment"
+        style="@style/text_20sp_black"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_button_green"
+        android:text="@string/label_payment"
+        app:layout_constraintBottom_toTopOf="@+id/btnMyRoom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMyRoom"
+        style="@style/text_20sp_black"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="@dimen/padding_20dp"
+        android:background="@drawable/bg_button_blue"
+        android:text="@string/label_my_room"
+        app:layout_constraintBottom_toTopOf="@+id/btnAlertExit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPayment"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAlertExit"
+        style="@style/text_20sp_black"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="@dimen/padding_20dp"
+        android:background="@drawable/bg_button_orange"
+        android:text="@string/label_alert_exit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMyRoom"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

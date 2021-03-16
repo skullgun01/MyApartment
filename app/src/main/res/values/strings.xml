@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MyApartment</string>
+
+    <string name="label_username">username : </string>
+    <string name="label_password">password : </string>
+    <string name="label_login">Login</string>
+    <string name="label_alert">ประกาศ</string>
+    <string name="label_rule">กฏระเบียบ</string>
+
+    <string name="label_room">หอพัก</string>
+    <string name="label_main_page">หน้าหลัก</string>
+    <string name="label_logout">ออกจากระบบ</string>
+
+    <string name="label_payment">แจ้งค่าชำระ</string>
+    <string name="label_my_room">ห้องของฉัน</string>
+    <string name="label_alert_exit">แจ้งย้ายออก</string>
+
+</resources>
