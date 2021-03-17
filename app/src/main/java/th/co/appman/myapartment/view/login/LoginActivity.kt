@@ -1,9 +1,8 @@
 package th.co.appman.myapartment.view.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import th.co.appman.myapartment.R
+import androidx.appcompat.app.AppCompatActivity
 import th.co.appman.myapartment.databinding.ActivityLoginBinding
 import th.co.appman.myapartment.view.user.menu.UserMenuActivity
 

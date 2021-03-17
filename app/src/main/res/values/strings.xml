@@ -15,4 +15,11 @@
     <string name="label_my_room">ห้องของฉัน</string>
     <string name="label_alert_exit">แจ้งย้ายออก</string>
 
+    <string name="label_back">ย้อนกลับ</string>
+    <string name="label_title_room">ห้อง</string>
+
+    <string name="label_title_name">ชื่อ - นามสกุล : </string>
+    <string name="label_title_address">ที่อยู่หอพัก : </string>
+    <string name="label_title_tel">ติดต่อหอพัก : </string>
+
 </resources>
