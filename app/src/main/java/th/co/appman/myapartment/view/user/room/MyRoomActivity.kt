@@ -12,5 +12,13 @@ class MyRoomActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMyRoomBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        init()
+    }
+
+    private fun init() {
+        binding.toolBar.layoutBack.setOnClickListener {
+            finish()
+        }
     }
 }

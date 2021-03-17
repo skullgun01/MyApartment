@@ -22,4 +22,11 @@
     <string name="label_title_address">ที่อยู่หอพัก : </string>
     <string name="label_title_tel">ติดต่อหอพัก : </string>
 
+    <string name="label_title_date_payment">ยอดชำระของวันที่ : </string>
+    <string name="label_title_room_price">ค่าห้อง : </string>
+    <string name="label_title_water_price">ค่าน้ำ 20 บาท %1$s หน่วย : </string>
+    <string name="label_title_electric_price">ค่าไฟ 5 บาท %1$s หน่วย : </string>
+    <string name="label_title_overdue_price">ยอดค้างชำระ : </string>
+    <string name="label_title_sum_price">รวม : </string>
+
 </resources>

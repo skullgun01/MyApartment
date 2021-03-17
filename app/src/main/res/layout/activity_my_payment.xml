@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.user.payment.MyPaymentActivity">
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/tool_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="@dimen/padding_20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRoom"
+            style="@style/text_24sp_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_title_room"
+            app:layout_constraintBottom_toTopOf="@+id/layoutContent"
+            app:layout_constraintEnd_toStartOf="@+id/tvRoomNumber"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRoomNumber"
+            style="@style/text_24sp_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvRoom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvRoom"
+            app:layout_constraintTop_toTopOf="@+id/tvRoom"
+            tools:text="201" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_5dp"
+            android:background="@drawable/bg_edit_text"
+            android:padding="@dimen/padding_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRoom">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleDate"
+                style="@style/text_18sp_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_title_date_payment"
+                app:layout_constraintEnd_toStartOf="@+id/tvDate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDate"
+                style="@style/text_18sp_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleDate"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleDate"
+                tools:text="01/02/2564" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleRoomPrice"
+                style="@style/text_18sp_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_20dp"
+                android:text="@string/label_title_room_price"
+                app:layout_constraintEnd_toStartOf="@+id/tvRoomPrice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRoomPrice"
+                style="@style/text_18sp_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleRoomPrice"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleRoomPrice"
+                tools:text="600000 บาท" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleWaterPrice"
+                style="@style/text_18sp_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:text="@string/label_title_water_price"
+                app:layout_constraintEnd_toStartOf="@+id/tvWaterPrice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRoomPrice" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvWaterPrice"
+                style="@style/text_18sp_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleWaterPrice"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleWaterPrice"
+                tools:text="3000 บาท" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleElectricPrice"
+                style="@style/text_18sp_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:text="@string/label_title_electric_price"
+                app:layout_constraintEnd_toStartOf="@+id/tvElectricPrice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvWaterPrice" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvElectricPrice"
+                style="@style/text_18sp_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleElectricPrice"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleElectricPrice"
+                tools:text="3000 บาท" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleOverduePrice"
+                style="@style/text_18sp_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_5dp"
+                android:text="@string/label_title_overdue_price"
+                app:layout_constraintEnd_toStartOf="@+id/tvOverduePrice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvElectricPrice" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOverduePrice"
+                style="@style/text_18sp_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleOverduePrice"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleOverduePrice"
+                tools:text="3000 บาท" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleSumPrice"
+                style="@style/text_18sp_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_20dp"
+                android:text="@string/label_title_sum_price"
+                app:layout_constraintEnd_toStartOf="@+id/tvSumPrice"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOverduePrice" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSumPrice"
+                style="@style/text_18sp_black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvTitleSumPrice"
+                app:layout_constraintTop_toTopOf="@+id/tvTitleSumPrice"
+                tools:text="3000 บาท" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
