@@ -1,0 +1,30 @@
+[
+  {
+    "productName": "เตียง",
+    "productPrice": "5,000"
+  },
+  {
+    "productName": "ฟูก",
+    "productPrice": "2,000"
+  },
+  {
+    "productName": "โต๊ะ",
+    "productPrice": "500"
+  },
+  {
+    "productName": "รีโมทแอร์",
+    "productPrice": "300"
+  },
+  {
+    "productName": "แอร์",
+    "productPrice": "3,000"
+  },
+  {
+    "productName": "ทีวี",
+    "productPrice": "1,000"
+  },
+  {
+    "productName": "รีโมททีวี",
+    "productPrice": "500"
+  }
+]

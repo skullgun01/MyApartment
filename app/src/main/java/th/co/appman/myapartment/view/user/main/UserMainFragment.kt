@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import th.co.appman.myapartment.databinding.FragmentUserMainBinding
+import th.co.appman.myapartment.view.user.exit.ExitRoomActivity
 import th.co.appman.myapartment.view.user.payment.MyPaymentActivity
 import th.co.appman.myapartment.view.user.room.MyRoomActivity
 
@@ -35,6 +36,10 @@ class UserMainFragment : Fragment() {
 
         binding.btnMyRoom.setOnClickListener {
             openNewPage(MyRoomActivity::class.java)
+        }
+
+        binding.btnAlertExit.setOnClickListener {
+            openNewPage(ExitRoomActivity::class.java)
         }
     }
 

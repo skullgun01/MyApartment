@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.user.exit.ExitRoomActivity">
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/tool_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="@dimen/padding_20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRoom"
+            style="@style/text_24sp_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_title_room"
+            app:layout_constraintBottom_toTopOf="@+id/layoutContent"
+            app:layout_constraintEnd_toStartOf="@+id/tvRoomNumber"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRoomNumber"
+            style="@style/text_24sp_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvRoom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvRoom"
+            app:layout_constraintTop_toTopOf="@+id/tvRoom"
+            tools:text="201" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleExitDate"
+            style="@style/text_18sp_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_20dp"
+            android:text="@string/label_title_exit_data"
+            app:layout_constraintBottom_toTopOf="@+id/tvTitleProductPrice"
+            app:layout_constraintEnd_toStartOf="@+id/etExitData"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRoom" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etExitData"
+            style="@style/text_18sp_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_edit_text"
+            android:focusable="false"
+            android:inputType="none"
+            android:layout_marginStart="@dimen/padding_5dp"
+            android:lines="1"
+            android:maxLines="1"
+            android:textIsSelectable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTitleExitDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvTitleExitDate"
+            app:layout_constraintTop_toTopOf="@+id/tvTitleExitDate" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleProductPrice"
+            style="@style/text_18sp_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_20dp"
+            android:text="@string/label_title_product_price"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleExitDate" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/padding_5dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnConfirmExit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleProductPrice"
+            tools:listitem="@layout/product_list" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnConfirmExit"
+            style="@style/text_16sp_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_5dp"
+            android:background="@drawable/bg_button_base"
+            android:text="@string/label_confirm_exit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
