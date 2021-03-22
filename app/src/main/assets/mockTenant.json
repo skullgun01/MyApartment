@@ -1,0 +1,44 @@
+[
+  {
+    "roomNumber": "201",
+    "tenantName": "นาย ทดสอบ 201",
+    "tenantTel": "081-111-2222",
+    "tenantIDCard": "8492947586029",
+    "contractRoom": ""
+  },
+  {
+    "roomNumber": "404",
+    "tenantName": "นาย ทดสอบ 404",
+    "tenantTel": "095-351-2342",
+    "tenantIDCard": "8402943684271",
+    "contractRoom": ""
+  },
+  {
+    "roomNumber": "302",
+    "tenantName": "นาย ทดสอบ 302",
+    "tenantTel": "091-135-3413",
+    "tenantIDCard": "9586930758619",
+    "contractRoom": ""
+  },
+  {
+    "roomNumber": "301",
+    "tenantName": "นาย ทดสอบ 301",
+    "tenantTel": "094-785-5311",
+    "tenantIDCard": "3436264970891",
+    "contractRoom": ""
+  },
+  {
+    "roomNumber": "205",
+    "tenantName": "นาย ทดสอบ 205",
+    "tenantTel": "086-351-2644",
+    "tenantIDCard": "8697850391874",
+    "contractRoom": ""
+  },
+  {
+    "roomNumber": "305",
+    "tenantName": "นาย ทดสอบ 305",
+    "tenantTel": "083-498-6895",
+    "tenantIDCard": "8596748291827",
+    "contractRoom": ""
+  }
+]

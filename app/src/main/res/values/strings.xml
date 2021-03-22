@@ -33,4 +33,9 @@
 
     <string name="label_confirm_exit">ยืนยันแจ้งย้ายออก</string>
 
+    <string name="btn_confirm">ตกลง</string>
+
+    <string name="label_check_login">รหัสผ่านผิด</string>
+    <string name="label_check_room_status">ห้องพักว่าง</string>
+
 </resources>

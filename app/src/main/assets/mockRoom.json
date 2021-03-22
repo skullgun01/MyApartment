@@ -1,0 +1,137 @@
+[
+  {
+    "roomNumber": "201",
+    "roomFloor": "2",
+    "tenantName": "นาย ทดสอบ 201",
+    "roomStatus": true,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "202",
+    "roomFloor": "2",
+    "tenantName": "",
+    "roomStatus": false,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "203",
+    "roomFloor": "2",
+    "tenantName": "",
+    "roomStatus": false,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "204",
+    "roomFloor": "2",
+    "tenantName": "",
+    "roomStatus": false,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "205",
+    "roomFloor": "2",
+    "tenantName": "นาย ทดสอบ 205",
+    "roomStatus": true,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "301",
+    "roomFloor": "3",
+    "tenantName": "นาย ทดสอบ 301",
+    "roomStatus": true,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "302",
+    "roomFloor": "3",
+    "tenantName": "นาย ทดสอบ 302",
+    "roomStatus": true,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "303",
+    "roomFloor": "3",
+    "tenantName": "",
+    "roomStatus": false,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "304",
+    "roomFloor": "3",
+    "tenantName": "",
+    "roomStatus": false,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "305",
+    "roomFloor": "3",
+    "tenantName": "นาย ทดสอบ 305",
+    "roomStatus": true,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "401",
+    "roomFloor": "4",
+    "tenantName": "",
+    "roomStatus": false,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "402",
+    "roomFloor": "4",
+    "tenantName": "",
+    "roomStatus": false,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "403",
+    "roomFloor": "4",
+    "tenantName": "",
+    "roomStatus": false,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "404",
+    "roomFloor": "4",
+    "tenantName": "นาย ทดสอบ 404",
+    "roomStatus": true,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  },
+  {
+    "roomNumber": "405",
+    "roomFloor": "4",
+    "tenantName": "",
+    "roomStatus": false,
+    "roomExitDate": "",
+    "roomOverdue": false,
+    "roomPrice": "6000"
+  }
+]

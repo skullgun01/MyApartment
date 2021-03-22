@@ -1,81 +1,81 @@
 [
   {
-    "username": "admin",
+    "roomNumber": "admin",
     "password": "123456",
     "role": "admin"
   },
   {
-    "username": "201",
+    "roomNumber": "201",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "202",
+    "roomNumber": "202",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "203",
+    "roomNumber": "203",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "204",
+    "roomNumber": "204",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "205",
+    "roomNumber": "205",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "301",
+    "roomNumber": "301",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "302",
+    "roomNumber": "302",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "303",
+    "roomNumber": "303",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "304",
+    "roomNumber": "304",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "305",
+    "roomNumber": "305",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "401",
+    "roomNumber": "401",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "402",
+    "roomNumber": "402",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "403",
+    "roomNumber": "403",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "404",
+    "roomNumber": "404",
     "password": "1234",
     "role": "user"
   },
   {
-    "username": "405",
+    "roomNumber": "405",
     "password": "1234",
     "role": "user"
   }
