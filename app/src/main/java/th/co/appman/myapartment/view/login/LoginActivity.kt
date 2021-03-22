@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import th.co.appman.myapartment.alert.AlertMessageDialogFragment
+import th.co.appman.myapartment.base.Constants
 import th.co.appman.myapartment.databinding.ActivityLoginBinding
 import th.co.appman.myapartment.view.user.menu.UserMenuActivity
 import th.co.appman.myapartment.viewmodel.LoginViewModel
@@ -28,8 +29,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun observeData() {
         vm.checkLoginLiveData.observe(this, Observer {
-            if (it == "user") {
-                val intent = Intent(this, UserMenuActivity::class.java)
+            if (it.first == Constants.KEY_USER) {
+                val intent = Intent(this, UserMenuActivity::class.java).apply {
+                    putExtra(Constants.KEY_USER, it.second)
+                }
                 startActivity(intent)
                 finish()
             }

@@ -18,7 +18,7 @@ import th.co.appman.myapartment.utils.JsonHelper
 class LoginViewModel(private val mContext: Context, private val apartmentDao: ApartmentDao) :
     BaseViewModel() {
 
-    val checkLoginLiveData: MutableLiveData<String> = MutableLiveData()
+    val checkLoginLiveData: MutableLiveData<Pair<String, String>> = MutableLiveData()
 
     fun insertUserData(userData: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -90,11 +90,15 @@ class LoginViewModel(private val mContext: Context, private val apartmentDao: Ap
 
                 if (result.roomNumber == username && result.password == password) {
                     result.role?.let { roleUser ->
-                        val resultCheckStatusRoom = apartmentDao.loginCheckStatusRoom(username)
-                        if (resultCheckStatusRoom.roomStatus) {
-                            checkLoginLiveData.postValue(roleUser)
+                        if (roleUser == Constants.KEY_USER) {
+                            val resultCheckStatusRoom = apartmentDao.getRoomDetail(username)
+                            if (resultCheckStatusRoom.roomStatus) {
+                                checkLoginLiveData.postValue(Pair(roleUser, username))
+                            } else {
+                                errorLiveData.postValue(mContext.getString(R.string.label_check_room_status))
+                            }
                         } else {
-                            errorLiveData.postValue(mContext.getString(R.string.label_check_room_status))
+                            checkLoginLiveData.postValue(Pair(roleUser, ""))
                         }
                     } ?: errorLiveData.postValue(Constants.APPLICATION_ERROR)
                 } else {

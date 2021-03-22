@@ -2,13 +2,10 @@ package th.co.appman.myapartment.room
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import th.co.appman.myapartment.model.AddressEntity
-import th.co.appman.myapartment.model.RoomEntity
-import th.co.appman.myapartment.model.TenantEntity
-import th.co.appman.myapartment.model.UserEntity
+import th.co.appman.myapartment.model.*
 
 @Database(
-    entities = [UserEntity::class, AddressEntity::class, RoomEntity::class, TenantEntity::class],
+    entities = [UserEntity::class, AddressEntity::class, RoomEntity::class, TenantEntity::class, PaymentEntity::class],
     version = 1,
     exportSchema = false
 )

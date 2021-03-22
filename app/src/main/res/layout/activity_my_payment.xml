@@ -71,6 +71,7 @@
                 style="@style/text_18sp_black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvTitleDate"
                 app:layout_constraintTop_toTopOf="@+id/tvTitleDate"
@@ -92,6 +93,7 @@
                 style="@style/text_18sp_black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvTitleRoomPrice"
                 app:layout_constraintTop_toTopOf="@+id/tvTitleRoomPrice"
@@ -113,6 +115,7 @@
                 style="@style/text_18sp_black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvTitleWaterPrice"
                 app:layout_constraintTop_toTopOf="@+id/tvTitleWaterPrice"
@@ -134,6 +137,7 @@
                 style="@style/text_18sp_black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvTitleElectricPrice"
                 app:layout_constraintTop_toTopOf="@+id/tvTitleElectricPrice"
@@ -155,6 +159,7 @@
                 style="@style/text_18sp_black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvTitleOverduePrice"
                 app:layout_constraintTop_toTopOf="@+id/tvTitleOverduePrice"
@@ -176,6 +181,7 @@
                 style="@style/text_18sp_black"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvTitleSumPrice"
                 app:layout_constraintTop_toTopOf="@+id/tvTitleSumPrice"
@@ -184,5 +190,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

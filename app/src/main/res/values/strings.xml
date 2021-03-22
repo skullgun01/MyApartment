@@ -26,6 +26,7 @@
     <string name="label_title_room_price">ค่าห้อง : </string>
     <string name="label_title_water_price">ค่าน้ำ 20 บาท %1$s หน่วย : </string>
     <string name="label_title_electric_price">ค่าไฟ 5 บาท %1$s หน่วย : </string>
+    <string name="label_price">%1$s บาท</string>
     <string name="label_title_overdue_price">ยอดค้างชำระ : </string>
     <string name="label_title_sum_price">รวม : </string>
     <string name="label_title_exit_data">วันที่ต้องการย้ายออก : </string>
@@ -37,5 +38,6 @@
 
     <string name="label_check_login">รหัสผ่านผิด</string>
     <string name="label_check_room_status">ห้องพักว่าง</string>
+    <string name="label_address_tel">ติดต่อหอพัก\n%1$s</string>
 
 </resources>

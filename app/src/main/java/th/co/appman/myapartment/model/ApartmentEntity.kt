@@ -82,37 +82,40 @@ data class TenantEntity(
 
 @Entity(tableName = "Payment")
 data class PaymentEntity(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
     @SerializedName("transectionNumber")
-    val transectionNumber: Int = 0,
+    var transectionNumber: Int = 0,
 
     @SerializedName("roomNumber")
-    val roomNumber: String = "",
+    var roomNumber: String = "",
 
     @SerializedName("roomPrice")
-    val roomPrice: String? = "",
+    var roomPrice: String? = "",
 
     @SerializedName("waterPoint")
-    val waterPoint: String? = "",
+    var waterPoint: String? = "",
 
     @SerializedName("waterPrice")
-    val waterPrice: String? = "",
+    var waterPrice: String? = "",
 
     @SerializedName("electricityPoint")
-    val electricityPoint: String? = "",
+    var electricityPoint: String? = "",
 
     @SerializedName("electricityPrice")
-    val electricityPrice: String? = "",
+    var electricityPrice: String? = "",
 
     @SerializedName("overduePrice")
-    val overduePrice: String? = "",
+    var overduePrice: String? = "",
 
     @SerializedName("paymentDate")
-    val paymentDate: String? = "",
+    var paymentDate: String? = "",
 
     @SerializedName("tenantName")
-    val tenantName: String? = "",
+    var tenantName: String? = "",
 
     @SerializedName("paymentStatus")
-    val paymentStatus: Boolean = false
+    var paymentStatus: Boolean = false,
+
+    @SerializedName("sumPrice")
+    var sumPrice: String? = ""
 )

@@ -28,6 +28,7 @@
         android:imeOptions="actionNext"
         android:inputType="text"
         android:maxLines="1"
+        android:text="201"
         app:layout_constraintBottom_toTopOf="@+id/tvPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,9 +54,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_edit_text"
-        android:maxLines="1"
-        android:inputType="textPassword"
         android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:text="1234"
         app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,9 +82,9 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

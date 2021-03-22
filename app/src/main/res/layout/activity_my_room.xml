@@ -72,6 +72,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/padding_5dp"
                 app:layout_constraintStart_toEndOf="@+id/tvTitleName"
                 app:layout_constraintTop_toTopOf="@+id/tvTitleName"
                 tools:text="ทดสอบ นามสกุล" />
@@ -93,6 +94,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/padding_5dp"
                 app:layout_constraintStart_toEndOf="@+id/tvTitleAddress"
                 app:layout_constraintTop_toTopOf="@+id/tvTitleAddress"
                 tools:text="555/555 ถ.ลูกรัง ต.หน้าเมือง อ.หน้าเมือง จ.บึงกาฬ" />
@@ -114,6 +116,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/padding_5dp"
                 app:layout_constraintStart_toEndOf="@+id/tvTitleTel"
                 app:layout_constraintTop_toTopOf="@+id/tvTitleTel"
                 tools:text="02-222-2222" />
@@ -121,5 +124,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
