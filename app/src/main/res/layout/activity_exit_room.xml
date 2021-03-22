@@ -28,7 +28,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_title_room"
-            app:layout_constraintBottom_toTopOf="@+id/layoutContent"
             app:layout_constraintEnd_toStartOf="@+id/tvRoomNumber"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -53,19 +52,19 @@
             android:layout_marginTop="@dimen/padding_20dp"
             android:text="@string/label_title_exit_data"
             app:layout_constraintBottom_toTopOf="@+id/tvTitleProductPrice"
-            app:layout_constraintEnd_toStartOf="@+id/etExitData"
+            app:layout_constraintEnd_toStartOf="@+id/etExitDate"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvRoom" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etExitData"
+            android:id="@+id/etExitDate"
             style="@style/text_18sp_black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_5dp"
             android:background="@drawable/bg_edit_text"
             android:focusable="false"
             android:inputType="none"
-            android:layout_marginStart="@dimen/padding_5dp"
             android:lines="1"
             android:maxLines="1"
             android:textIsSelectable="true"
@@ -110,5 +109,15 @@
             app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,4 +38,7 @@ interface ApartmentDao {
 
     @Query("SELECT * FROM Payment WHERE roomNumber = :roomNumber AND paymentStatus = :paymentStatus")
     suspend fun getPaymentDetail(roomNumber: String, paymentStatus: Boolean): PaymentEntity
+
+    @Query("UPDATE Room SET roomExitDate = :exitDate WHERE roomNumber = :roomNumber")
+    suspend fun updateExitDate(roomNumber: String, exitDate: String)
 }

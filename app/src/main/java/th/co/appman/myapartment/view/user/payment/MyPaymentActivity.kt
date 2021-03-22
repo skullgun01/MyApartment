@@ -63,6 +63,9 @@ class MyPaymentActivity : AppCompatActivity() {
         vm.errorLiveData.observe(this, Observer {
             AlertMessageDialogFragment.Builder()
                 .setMessage(it)
+                .setCallback {
+                    finish()
+                }
                 .build()
                 .show(supportFragmentManager, TAG)
         })
