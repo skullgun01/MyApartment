@@ -9,6 +9,8 @@
 
     <string name="label_room">หอพัก</string>
     <string name="label_main_page">หน้าหลัก</string>
+    <string name="label_status_room">สถานะห้อง</string>
+    <string name="label_dashboard_page">Dashboard</string>
     <string name="label_logout">ออกจากระบบ</string>
 
     <string name="label_payment">แจ้งค่าชำระ</string>
@@ -35,6 +37,7 @@
     <string name="label_confirm_exit">ยืนยันแจ้งย้ายออก</string>
 
     <string name="btn_confirm">ตกลง</string>
+    <string name="btn_save">บันทึก</string>
 
     <string name="label_check_login">รหัสผ่านผิด</string>
     <string name="label_check_room_status">ห้องพักว่าง</string>
@@ -43,5 +46,8 @@
     <string name="label_have_not_payment">ไม่มียอดค้างชำระ</string>
     <string name="label_please_select_date">กรุณาเลือกวันที่</string>
     <string name="label_noti_exit_room">แจ้งย้ายออกสำเร็จ</string>
+
+    <string name="alert_save_success">บันทึกเรียบร้อย</string>
+    <string name="alert_save_fail">บันทึกไม่สำเร็จ</string>
 
 </resources>

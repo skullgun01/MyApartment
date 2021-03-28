@@ -9,6 +9,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import th.co.appman.myapartment.alert.AlertMessageDialogFragment
 import th.co.appman.myapartment.base.Constants
 import th.co.appman.myapartment.databinding.ActivityLoginBinding
+import th.co.appman.myapartment.utils.Preference
+import th.co.appman.myapartment.view.admin.menu.AdminMenuActivity
 import th.co.appman.myapartment.view.user.menu.UserMenuActivity
 import th.co.appman.myapartment.viewmodel.LoginViewModel
 
@@ -35,6 +37,10 @@ class LoginActivity : AppCompatActivity() {
                 }
                 startActivity(intent)
                 finish()
+            } else {
+                val intent = Intent(this, AdminMenuActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         })
 
@@ -55,17 +61,23 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        val userData = resources.assets.open("mockUser.json").bufferedReader().readText()
-        vm.insertUserData(userData)
+        val firstTime = Preference.instance.getBoolean(this, FIRST_TIME, false)
 
-        val addressData = resources.assets.open("mockAddress.json").bufferedReader().readText()
-        vm.insertAddressData(addressData)
+        if (!firstTime) {
+            val userData = resources.assets.open("mockUser.json").bufferedReader().readText()
+            vm.insertUserData(userData)
 
-        val roomData = resources.assets.open("mockRoom.json").bufferedReader().readText()
-        vm.insertRoomData(roomData)
+            val addressData = resources.assets.open("mockAddress.json").bufferedReader().readText()
+            vm.insertAddressData(addressData)
 
-        val tenantData = resources.assets.open("mockTenant.json").bufferedReader().readText()
-        vm.insertTenantData(tenantData)
+            val roomData = resources.assets.open("mockRoom.json").bufferedReader().readText()
+            vm.insertRoomData(roomData)
+
+            val tenantData = resources.assets.open("mockTenant.json").bufferedReader().readText()
+            vm.insertTenantData(tenantData)
+
+            Preference.instance.putBoolean(this, FIRST_TIME, true)
+        }
     }
 
     private fun init() {
@@ -76,5 +88,6 @@ class LoginActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "LoginActivity"
+        private const val FIRST_TIME = "FIRST_TIME"
     }
 }

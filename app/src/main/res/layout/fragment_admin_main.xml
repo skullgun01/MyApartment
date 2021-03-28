@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_20dp"
+    tools:context=".view.admin.main.AdminMainFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAnnounce"
+        style="@style/text_16sp_black"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_5dp"
+        android:text="@string/label_alert"
+        app:layout_constraintBottom_toTopOf="@+id/etAnnounceMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etAnnounceMessage"
+        style="@style/text_16sp_black"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_edit_text"
+        android:gravity="top"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveAnnounce"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAnnounce"
+        tools:text="ทดสอบ" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSaveAnnounce"
+        style="@style/text_16sp_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_10dp"
+        android:background="@drawable/bg_button_base"
+        android:text="@string/btn_save"
+        app:layout_constraintBottom_toTopOf="@+id/tvRule"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAnnounceMessage" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRule"
+        style="@style/text_16sp_black"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_10dp"
+        android:layout_marginBottom="@dimen/padding_5dp"
+        android:text="@string/label_rule"
+        app:layout_constraintBottom_toTopOf="@id/etRuleMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSaveAnnounce" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etRuleMessage"
+        style="@style/text_16sp_black"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_edit_text"
+        android:gravity="top"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveRule"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRule"
+        tools:text="ทดสอบ" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSaveRule"
+        style="@style/text_16sp_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_10dp"
+        android:background="@drawable/bg_button_base"
+        android:text="@string/btn_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etRuleMessage" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

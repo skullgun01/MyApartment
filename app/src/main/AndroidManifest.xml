@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApartment">
         <activity
+            android:name=".view.admin.menu.AdminMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".view.user.exit.ExitRoomActivity"
             android:screenOrientation="portrait" />
         <activity

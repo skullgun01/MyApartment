@@ -5,6 +5,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import th.co.appman.myapartment.room.ApartmentDatabase
+import th.co.appman.myapartment.viewmodel.AdminMainViewModel
 import th.co.appman.myapartment.viewmodel.LoginViewModel
 import th.co.appman.myapartment.viewmodel.UserMenuViewModel
 
@@ -25,5 +26,10 @@ val viewModelModule = module {
     viewModel {
         val database: ApartmentDatabase = get()
         UserMenuViewModel(androidContext(), database.apartmentDao())
+    }
+
+    viewModel {
+        val database: ApartmentDatabase = get()
+        AdminMainViewModel(database.apartmentDao())
     }
 }

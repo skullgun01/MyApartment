@@ -41,4 +41,10 @@ interface ApartmentDao {
 
     @Query("UPDATE Room SET roomExitDate = :exitDate WHERE roomNumber = :roomNumber")
     suspend fun updateExitDate(roomNumber: String, exitDate: String)
+
+    @Query("UPDATE Address SET announceMessage = :announceMessage WHERE addressNumber = :addressNumber")
+    suspend fun saveAnnounceMessage(addressNumber: String, announceMessage: String)
+
+    @Query("UPDATE Address SET ruleMessage = :ruleMessage WHERE addressNumber = :addressNumber")
+    suspend fun saveRuleMessage(addressNumber: String, ruleMessage: String)
 }
