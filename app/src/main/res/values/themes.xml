@@ -81,4 +81,8 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="text_18sp_red" parent="text_18sp">
+        <item name="android:textColor">@color/red_base</item>
+    </style>
+
 </resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/padding_10dp"
+    app:cardBackgroundColor="@color/gray"
+    app:cardCornerRadius="@dimen/padding_10dp"
+    app:cardElevation="2dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="@dimen/padding_10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRoomNumber"
+            style="@style/text_18sp_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/tvTenantName"
+            app:layout_constraintEnd_toStartOf="@+id/tvRoomStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/label_room_number" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRoomStatus"
+            style="@style/text_18sp_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/tvRoomNumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvRoomNumber"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/label_room_empty" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTenantName"
+            style="@style/text_18sp_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/layoutDetailRoom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRoomNumber"
+            tools:text="นาย ทดสอบ 201" />
+
+        <LinearLayout
+            android:id="@+id/layoutDetailRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTenantName">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAnnounceExit"
+                style="@style/text_18sp_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/label_announce_exit" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOverdue"
+                style="@style/text_18sp_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="@string/label_over_due_date" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

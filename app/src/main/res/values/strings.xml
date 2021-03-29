@@ -50,4 +50,10 @@
     <string name="alert_save_success">บันทึกเรียบร้อย</string>
     <string name="alert_save_fail">บันทึกไม่สำเร็จ</string>
 
+    <string name="label_room_number">ห้อง : %1$s</string>
+    <string name="label_room_empty">ว่าง</string>
+    <string name="label_room_not_empty">ไม่ว่าง</string>
+    <string name="label_announce_exit">แจ้งออก : %1$s</string>
+    <string name="label_over_due_date">ค้างชำระ</string>
+
 </resources>
