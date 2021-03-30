@@ -30,7 +30,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvRoomStatus"
-            style="@style/text_18sp_black"
+            style="@style/text_18sp_green"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"

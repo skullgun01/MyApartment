@@ -43,16 +43,16 @@ data class RoomEntity(
     val roomNumber: String = "",
 
     @SerializedName("roomFloor")
-    val roomFloor: String? = "",
+    val roomFloor: String = "",
 
     @SerializedName("tenantName")
-    val tenantName: String? = "",
+    val tenantName: String = "",
 
     @SerializedName("roomStatus")
     val roomStatus: Boolean = false,
 
     @SerializedName("roomExitDate")
-    val roomExitDate: String? = "",
+    val roomExitDate: String = "",
 
     @SerializedName("roomOverdue")
     val roomOverdue: Boolean = false,

@@ -47,4 +47,7 @@ interface ApartmentDao {
 
     @Query("UPDATE Address SET ruleMessage = :ruleMessage WHERE addressNumber = :addressNumber")
     suspend fun saveRuleMessage(addressNumber: String, ruleMessage: String)
+
+    @Query("SELECT * FROM Room")
+    suspend fun getAllRoom() : MutableList<RoomEntity>
 }

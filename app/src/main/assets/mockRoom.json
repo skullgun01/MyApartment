@@ -5,7 +5,7 @@
     "tenantName": "นาย ทดสอบ 201",
     "roomStatus": true,
     "roomExitDate": "",
-    "roomOverdue": false,
+    "roomOverdue": true,
     "roomPrice": "6000"
   },
   {
@@ -85,7 +85,7 @@
     "roomFloor": "3",
     "tenantName": "นาย ทดสอบ 305",
     "roomStatus": true,
-    "roomExitDate": "",
+    "roomExitDate": "20/04/2021",
     "roomOverdue": false,
     "roomPrice": "6000"
   },

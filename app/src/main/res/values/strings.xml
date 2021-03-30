@@ -56,4 +56,10 @@
     <string name="label_announce_exit">แจ้งออก : %1$s</string>
     <string name="label_over_due_date">ค้างชำระ</string>
 
+    <string name="label_empty_status_room">ห้องว่าง\n(%1$s)</string>
+    <string name="label_overdue_status">ค้างชำระ\n(%1$s)</string>
+    <string name="label_exit_status">สถานะย้ายออก\n(%1$s)</string>
+
+    <string name="label_no_tenant">ไม่มีผู้เช่า</string>
+
 </resources>
