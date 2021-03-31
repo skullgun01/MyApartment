@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApartment">
+        <activity android:name=".view.admin.payment.AdminPaymentActivity" />
         <activity
             android:name=".view.admin.menu.AdminMenuActivity"
             android:screenOrientation="portrait" />

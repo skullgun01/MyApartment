@@ -12,6 +12,7 @@ import th.co.appman.myapartment.model.RoomEntity
 class ListRoomAdapter : RecyclerView.Adapter<ListRoomAdapter.ViewHolder>() {
 
     private var mItem: MutableList<RoomEntity>? = null
+    private lateinit var onClickItemListener: OnClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = RoomListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -62,11 +63,23 @@ class ListRoomAdapter : RecyclerView.Adapter<ListRoomAdapter.ViewHolder>() {
             } else {
                 binding.tvOverdue.visibility = View.GONE
             }
+
+            itemView.setOnClickListener {
+                onClickItemListener.openDetailRoom(itemRoom)
+            }
         }
     }
 
     fun setListData(data: MutableList<RoomEntity>) {
         mItem = data
         notifyDataSetChanged()
+    }
+
+    fun setListener(listener: OnClickListener) {
+        onClickItemListener = listener
+    }
+
+    interface OnClickListener {
+        fun openDetailRoom(roomEntity: RoomEntity)
     }
 }

@@ -22,7 +22,9 @@
 
     <string name="label_title_name">ชื่อ - นามสกุล : </string>
     <string name="label_title_address">ที่อยู่หอพัก : </string>
+    <string name="label_tel_number">เบอร์โทรศัพท์ : </string>
     <string name="label_title_tel">ติดต่อหอพัก : </string>
+    <string name="label_id_card">บัตรประชาชน : </string>
 
     <string name="label_title_date_payment">ยอดชำระของวันที่ : </string>
     <string name="label_title_room_price">ค่าห้อง : </string>
@@ -38,6 +40,8 @@
 
     <string name="btn_confirm">ตกลง</string>
     <string name="btn_save">บันทึก</string>
+    <string name="btn_edit">แก้ไข</string>
+    <string name="btn_cancel_contact">ยกเลิกสัญญา / ย้ายออก</string>
 
     <string name="label_check_login">รหัสผ่านผิด</string>
     <string name="label_check_room_status">ห้องพักว่าง</string>
@@ -61,5 +65,20 @@
     <string name="label_exit_status">สถานะย้ายออก\n(%1$s)</string>
 
     <string name="label_no_tenant">ไม่มีผู้เช่า</string>
+    <string name="title_activity_payment">PaymentActivity</string>
+
+    <string name="label_date_pay">ยอดชำระของวันที่ : </string>
+    <string name="label_price_room">ค่าห้อง</string>
+    <string name="label_price_water">ค่าน้ำ 20 บาท</string>
+    <string name="label_sum_water">รวมค่าน้ำ</string>
+    <string name="label_price_electric">ค่าไฟ 5 บาท</string>
+    <string name="label_sum_electric">รวมค่าไฟ</string>
+    <string name="label_price_overdue">ยอดค้างชำระ</string>
+    <string name="label_price_sum">รวม</string>
+    <string name="label_point">หน่วย</string>
+    <string name="label_overdue_payment">(ค้างชำระ)</string>
+
+    <string name="btn_upload">Upload</string>
+    <string name="label_upload">สัญญาเช่า</string>
 
 </resources>

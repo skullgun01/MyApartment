@@ -12,5 +12,6 @@
     <dimen name="radius_edit_text">5dp</dimen>
     <dimen name="padding_edit_text_horizontal">8dp</dimen>
     <dimen name="padding_edit_text_vertical">4dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 </resources>

@@ -13,12 +13,14 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import th.co.appman.myapartment.R
 import th.co.appman.myapartment.alert.AlertMessageDialogFragment
 import th.co.appman.myapartment.databinding.FragmentListRoomBinding
+import th.co.appman.myapartment.model.RoomEntity
 import th.co.appman.myapartment.view.admin.main.AdminMainFragment
+import th.co.appman.myapartment.view.admin.payment.AdminPaymentActivity
 import th.co.appman.myapartment.view.login.LoginActivity
 import th.co.appman.myapartment.view.user.payment.MyPaymentActivity
 import th.co.appman.myapartment.viewmodel.ListRoomViewModel
 
-class ListRoomFragment : Fragment() {
+class ListRoomFragment : Fragment(), ListRoomAdapter.OnClickListener {
 
     lateinit var binding: FragmentListRoomBinding
     lateinit var listRoomAdapter: ListRoomAdapter
@@ -56,6 +58,7 @@ class ListRoomFragment : Fragment() {
 
     private fun setAdapter() {
         listRoomAdapter = ListRoomAdapter()
+        listRoomAdapter.setListener(this)
 
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -104,5 +107,10 @@ class ListRoomFragment : Fragment() {
         private const val TAG = "ListRoomFragment"
 
         fun newInstance(): Fragment = ListRoomFragment()
+    }
+
+    override fun openDetailRoom(roomEntity: RoomEntity) {
+        val intent = Intent(requireContext(), AdminPaymentActivity::class.java)
+        startActivity(intent)
     }
 }
