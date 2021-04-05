@@ -1,6 +1,5 @@
 package th.co.appman.myapartment.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -9,7 +8,6 @@ import th.co.appman.myapartment.base.BaseViewModel
 import th.co.appman.myapartment.base.Constants
 import th.co.appman.myapartment.model.AddressEntity
 import th.co.appman.myapartment.room.ApartmentDao
-import kotlin.Exception
 
 class AdminMainViewModel(private val apartmentDao: ApartmentDao) :
     BaseViewModel() {

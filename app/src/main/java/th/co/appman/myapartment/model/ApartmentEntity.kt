@@ -1,8 +1,10 @@
 package th.co.appman.myapartment.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 @Entity(tableName = "User")
 data class UserEntity(
@@ -36,6 +38,7 @@ data class AddressEntity(
     val ruleMessage: String? = ""
 )
 
+@Parcelize
 @Entity(tableName = "Room")
 data class RoomEntity(
     @PrimaryKey(autoGenerate = false)
@@ -59,7 +62,7 @@ data class RoomEntity(
 
     @SerializedName("roomPrice")
     val roomPrice: String? = ""
-)
+) : Parcelable
 
 @Entity(tableName = "Tenant")
 data class TenantEntity(
@@ -82,9 +85,9 @@ data class TenantEntity(
 
 @Entity(tableName = "Payment")
 data class PaymentEntity(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey
     @SerializedName("transectionNumber")
-    var transectionNumber: Int = 0,
+    var transectionNumber: String = "",
 
     @SerializedName("roomNumber")
     var roomNumber: String = "",
@@ -117,5 +120,5 @@ data class PaymentEntity(
     var paymentStatus: Boolean = false,
 
     @SerializedName("sumPrice")
-    var sumPrice: String? = ""
+    var sumPrice: String = ""
 )

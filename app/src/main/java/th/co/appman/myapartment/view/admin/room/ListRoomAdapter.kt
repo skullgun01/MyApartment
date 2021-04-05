@@ -65,7 +65,9 @@ class ListRoomAdapter : RecyclerView.Adapter<ListRoomAdapter.ViewHolder>() {
             }
 
             itemView.setOnClickListener {
-                onClickItemListener.openDetailRoom(itemRoom)
+                if (itemRoom.roomStatus) {
+                    onClickItemListener.openDetailRoom(itemRoom)
+                }
             }
         }
     }

@@ -49,5 +49,47 @@ interface ApartmentDao {
     suspend fun saveRuleMessage(addressNumber: String, ruleMessage: String)
 
     @Query("SELECT * FROM Room")
-    suspend fun getAllRoom() : MutableList<RoomEntity>
+    suspend fun getAllRoom(): MutableList<RoomEntity>
+
+    @Query("UPDATE Tenant SET tenantName = :tenantName, tenantTel = :tenantTel WHERE roomNumber = :roomNumber")
+    suspend fun updateTenantDetail(
+        roomNumber: String,
+        tenantName: String,
+        tenantTel: String
+    )
+
+    @Query("SELECT * FROM Payment WHERE roomNumber = :roomNumber AND paymentDate = :paymentDate")
+    suspend fun getPaymentDataByRoom(
+        roomNumber: String,
+        paymentDate: String
+    ): PaymentEntity
+
+    @Query("SELECT * FROM Payment WHERE roomNumber = :roomNumber AND paymentStatus = :paymentStatus")
+    suspend fun getPaymentOverdueByRoom(
+        roomNumber: String,
+        paymentStatus: Boolean
+    ): PaymentEntity
+
+    @Insert
+    suspend fun insertSavePaymentRoom(paymentEntity: PaymentEntity)
+
+    @Query("UPDATE Payment SET waterPoint = :waterPoint , waterPrice = :waterPrice , electricityPoint = :electricityPoint , electricityPrice = :electricityPrice , overduePrice = :overduePrice , paymentDate = :paymentDate , tenantName = :tenantName , paymentStatus = :paymentStatus , sumPrice = :sumPrice WHERE transectionNumber = :transectionNumber")
+    suspend fun updatePaymentRoom(
+        transectionNumber: String,
+        waterPoint: String,
+        waterPrice: String,
+        electricityPoint: String,
+        electricityPrice: String,
+        overduePrice: String,
+        paymentDate: String,
+        tenantName: String,
+        paymentStatus: Boolean,
+        sumPrice: String
+    )
+
+    @Query("UPDATE Payment SET paymentStatus = :paymentStatus WHERE roomNumber = :roomNumber")
+    suspend fun updateStatusPaymentByRoom(
+        roomNumber: String,
+        paymentStatus: Boolean
+    )
 }

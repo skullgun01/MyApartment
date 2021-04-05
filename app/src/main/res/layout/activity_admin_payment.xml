@@ -4,16 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".view.admin.payment.AdminPaymentActivity">
 
     <include
         android:id="@+id/toolBar"
         layout="@layout/tool_bar"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -151,6 +156,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_button_red"
+                    android:enabled="false"
                     android:text="@string/btn_save"
                     app:layout_constraintBottom_toBottomOf="@+id/btnEditDataTenant"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -166,6 +172,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_10dp"
                 android:background="@drawable/bg_button_base"
+                android:enabled="false"
                 android:text="@string/btn_cancel_contact"
                 app:layout_constraintBottom_toTopOf="@+id/layoutPayment"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -268,6 +275,9 @@
                     android:background="@drawable/bg_edit_text"
                     android:enabled="false"
                     android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLines="1"
                     app:layout_constraintBottom_toBottomOf="@+id/tvTitlePriceWater"
                     app:layout_constraintEnd_toStartOf="@+id/tvPointPriceWater"
                     app:layout_constraintStart_toEndOf="@+id/tvTitlePriceWater"
@@ -332,6 +342,9 @@
                     android:background="@drawable/bg_edit_text"
                     android:enabled="false"
                     android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLines="1"
                     app:layout_constraintBottom_toBottomOf="@+id/tvTitlePriceElectric"
                     app:layout_constraintEnd_toStartOf="@+id/tvPointPriceElectric"
                     app:layout_constraintStart_toEndOf="@+id/tvTitlePriceElectric"
@@ -432,6 +445,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/padding_10dp"
                     android:background="@drawable/bg_button_orange_edit"
+                    android:enabled="false"
                     android:text="@string/btn_edit"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btnSaveDataPrice"
@@ -444,6 +458,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_button_red"
+                    android:enabled="false"
                     android:text="@string/btn_save"
                     app:layout_constraintBottom_toBottomOf="@+id/btnEditDataPrice"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -483,5 +498,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

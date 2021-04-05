@@ -105,12 +105,15 @@ class ListRoomFragment : Fragment(), ListRoomAdapter.OnClickListener {
 
     companion object {
         private const val TAG = "ListRoomFragment"
+        const val KEY_ROOM_ENTITY = "KEY_ROOM_ENTITY"
 
         fun newInstance(): Fragment = ListRoomFragment()
     }
 
     override fun openDetailRoom(roomEntity: RoomEntity) {
-        val intent = Intent(requireContext(), AdminPaymentActivity::class.java)
+        val intent = Intent(requireContext(), AdminPaymentActivity::class.java).apply {
+            putExtra(KEY_ROOM_ENTITY, roomEntity)
+        }
         startActivity(intent)
     }
 }
