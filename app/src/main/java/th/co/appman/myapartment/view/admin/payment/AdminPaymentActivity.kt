@@ -1,23 +1,27 @@
 package th.co.appman.myapartment.view.admin.payment
 
-import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Base64
+import android.util.Log
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import th.co.appman.myapartment.R
 import th.co.appman.myapartment.alert.AlertExitRoomDialogFragment
 import th.co.appman.myapartment.alert.AlertMessageDialogFragment
+import th.co.appman.myapartment.base.Constants
 import th.co.appman.myapartment.databinding.ActivityAdminPaymentBinding
-import th.co.appman.myapartment.model.PaymentEntity
 import th.co.appman.myapartment.model.RoomEntity
 import th.co.appman.myapartment.utils.randomNumber
 import th.co.appman.myapartment.view.admin.room.ListRoomFragment
 import th.co.appman.myapartment.viewmodel.AdminPaymentViewModel
+import java.io.BufferedInputStream
+import java.io.File
+import java.io.FileInputStream
 import java.util.*
 
 class AdminPaymentActivity : AppCompatActivity() {
@@ -27,7 +31,6 @@ class AdminPaymentActivity : AppCompatActivity() {
 
     private var roomEntity = RoomEntity()
 
-    private var mDay: Int = 0
     private var mMonth: Int = 0
     private var mYear: Int = 0
 
@@ -173,6 +176,10 @@ class AdminPaymentActivity : AppCompatActivity() {
                 .show(supportFragmentManager, TAG)
         })
 
+        vm.addContractRoomLiveData.observe(this, Observer {
+            alertDialog(getString(R.string.alert_contract_room_success))
+        })
+
         vm.loadingLiveData.observe(this, Observer {
             if (it) {
                 binding.progressBar.visibility = View.VISIBLE
@@ -211,35 +218,7 @@ class AdminPaymentActivity : AppCompatActivity() {
             )
         }
 
-        binding.etDataPay.setOnClickListener {
-            val calendar = Calendar.getInstance()
-            mDay = calendar.get(Calendar.DAY_OF_MONTH)
-            mMonth = calendar.get(Calendar.MONTH)
-            mYear = calendar.get(Calendar.YEAR)
-
-            val datePicker = DatePickerDialog(
-                this,
-                { _, year, month, dayOfMonth ->
-                    val date = "$dayOfMonth/$month/$year"
-                    binding.etDataPay.setText(date)
-
-                    if (!updatePayment) {
-                        binding.tvPriceWater.setText("")
-                        binding.tvSumWater.text = "0"
-
-                        binding.tvPriceElectric.setText("")
-                        binding.tvSumElectric.text = "0"
-
-                        binding.tvSum.text = ""
-
-                        vm.getPaymentData(roomEntity.roomNumber, date)
-                    }
-                }, mYear, mMonth, mDay
-            )
-
-            datePicker.datePicker.minDate = System.currentTimeMillis() - 1000
-            datePicker.show()
-        }
+        initPaymentDate()
 
         binding.tvPriceWater.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -307,11 +286,32 @@ class AdminPaymentActivity : AppCompatActivity() {
                 .show(supportFragmentManager, TAG)
         }
 
+        binding.btnUploadContact.setOnClickListener {
+            val intent = Intent().apply {
+                action = Intent.ACTION_GET_CONTENT
+                type = "application/pdf"
+            }
+            startActivityForResult(
+                Intent.createChooser(intent, "Select photo from"),
+                REQUEST_GALLERY
+            )
+        }
+
         binding.toolBar.layoutBack.setOnClickListener {
             finish()
         }
 
         binding.btnCancelContact.isEnabled = roomEntity.roomExitDate.isNotEmpty()
+    }
+
+    private fun initPaymentDate() {
+        val calendar = Calendar.getInstance()
+        mMonth = calendar.get(Calendar.MONTH)
+        mYear = calendar.get(Calendar.YEAR)
+
+        val paymentData = "1/${mMonth + 1}/$mYear"
+        binding.etDataPay.setText(paymentData)
+        vm.getPaymentData(roomEntity.roomNumber, paymentData)
     }
 
     private fun alertDialog(message: String) {
@@ -321,7 +321,25 @@ class AdminPaymentActivity : AppCompatActivity() {
             .show(supportFragmentManager, TAG)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_GALLERY && resultCode == RESULT_OK) {
+            data?.let {
+                val uriPdf = it.data
+
+                try {
+                    val pdf = uriPdf?.let { it1 -> contentResolver.openInputStream(it1) }
+                    val base64 = Base64.encodeToString(pdf?.readBytes(), Base64.DEFAULT)
+                    vm.addContractRoom(roomEntity.roomNumber, base64)
+                } catch (e: Exception) {
+                    alertDialog(getString(R.string.alert_contract_room_fail))
+                }
+            } ?: alertDialog(getString(R.string.alert_contract_room_fail))
+        }
+    }
+
     companion object {
+        private const val REQUEST_GALLERY = 101
         private const val TAG = "AdminPaymentActivity"
     }
 }

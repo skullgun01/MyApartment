@@ -120,5 +120,8 @@ data class PaymentEntity(
     var paymentStatus: Boolean = false,
 
     @SerializedName("sumPrice")
-    var sumPrice: String = ""
+    var sumPrice: String = "",
+
+    @SerializedName("rawPrice")
+    var rawPrice: String = ""
 )

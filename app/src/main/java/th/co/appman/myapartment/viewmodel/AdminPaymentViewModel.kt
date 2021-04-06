@@ -23,6 +23,7 @@ class AdminPaymentViewModel(private val apartmentDao: ApartmentDao) : BaseViewMo
     val updateStatusLiveData: MutableLiveData<Unit> = MutableLiveData()
     val roomDetailLiveData: MutableLiveData<RoomEntity> = MutableLiveData()
     val clearTenantDataLiveData: MutableLiveData<Unit> = MutableLiveData()
+    val addContractRoomLiveData: MutableLiveData<Unit> = MutableLiveData()
 
     fun getTenantData(roomNumber: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -114,6 +115,8 @@ class AdminPaymentViewModel(private val apartmentDao: ApartmentDao) : BaseViewMo
         viewModelScope.launch(Dispatchers.IO) {
             loadingLiveData.postValue(true)
             try {
+                val _overduePrice = overduePrice.toIntOrNull() ?: 0
+
                 val paymentEntity = PaymentEntity().apply {
                     this.transectionNumber = transectionNumber
                     this.roomNumber = roomNumber
@@ -127,6 +130,8 @@ class AdminPaymentViewModel(private val apartmentDao: ApartmentDao) : BaseViewMo
                     this.tenantName = tenantName
                     this.paymentStatus = false
                     this.sumPrice = sumPrice
+                    this.rawPrice = (sumPrice.toInt() - _overduePrice).toString()
+
                 }
 
                 apartmentDao.insertSavePaymentRoom(paymentEntity)
@@ -153,6 +158,8 @@ class AdminPaymentViewModel(private val apartmentDao: ApartmentDao) : BaseViewMo
         viewModelScope.launch(Dispatchers.IO) {
             loadingLiveData.postValue(true)
             try {
+                val _overduePrice = overduePrice.toIntOrNull() ?: 0
+
                 apartmentDao.updatePaymentRoom(
                     transectionNumber,
                     waterPoint,
@@ -163,7 +170,8 @@ class AdminPaymentViewModel(private val apartmentDao: ApartmentDao) : BaseViewMo
                     paymentDate,
                     tenantName,
                     false,
-                    sumPrice
+                    sumPrice,
+                    (sumPrice.toInt() - _overduePrice).toString()
                 )
                 savePaymentRoomLiveData.postValue(Unit)
                 loadingLiveData.postValue(false)
@@ -220,6 +228,20 @@ class AdminPaymentViewModel(private val apartmentDao: ApartmentDao) : BaseViewMo
                 apartmentDao.deleteTenant(roomNumber)
                 apartmentDao.clearRoomData(roomNumber, "", false, "", false)
                 clearTenantDataLiveData.postValue(Unit)
+                loadingLiveData.postValue(false)
+            } catch (e: Exception) {
+                loadingLiveData.postValue(false)
+                errorLiveData.postValue(Constants.APPLICATION_ERROR)
+            }
+        }
+    }
+
+    fun addContractRoom(roomNumber: String, contractRoom: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            loadingLiveData.postValue(true)
+            try {
+                apartmentDao.addContractTenant(roomNumber, contractRoom)
+                addContractRoomLiveData.postValue(Unit)
                 loadingLiveData.postValue(false)
             } catch (e: Exception) {
                 loadingLiveData.postValue(false)

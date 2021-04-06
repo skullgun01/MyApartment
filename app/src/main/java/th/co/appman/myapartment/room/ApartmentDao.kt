@@ -73,7 +73,7 @@ interface ApartmentDao {
     @Insert
     suspend fun insertSavePaymentRoom(paymentEntity: PaymentEntity)
 
-    @Query("UPDATE Payment SET waterPoint = :waterPoint , waterPrice = :waterPrice , electricityPoint = :electricityPoint , electricityPrice = :electricityPrice , overduePrice = :overduePrice , paymentDate = :paymentDate , tenantName = :tenantName , paymentStatus = :paymentStatus , sumPrice = :sumPrice WHERE transectionNumber = :transectionNumber")
+    @Query("UPDATE Payment SET waterPoint = :waterPoint , waterPrice = :waterPrice , electricityPoint = :electricityPoint , electricityPrice = :electricityPrice , overduePrice = :overduePrice , paymentDate = :paymentDate , tenantName = :tenantName , paymentStatus = :paymentStatus , sumPrice = :sumPrice, rawPrice = :rawPrice WHERE transectionNumber = :transectionNumber")
     suspend fun updatePaymentRoom(
         transectionNumber: String,
         waterPoint: String,
@@ -84,7 +84,8 @@ interface ApartmentDao {
         paymentDate: String,
         tenantName: String,
         paymentStatus: Boolean,
-        sumPrice: String
+        sumPrice: String,
+        rawPrice: String
     )
 
     @Query("UPDATE Payment SET paymentStatus = :paymentStatus WHERE roomNumber = :roomNumber")
@@ -106,5 +107,11 @@ interface ApartmentDao {
         roomStatus: Boolean,
         roomExitDate: String,
         roomOverdue: Boolean
+    )
+
+    @Query("UPDATE Tenant SET contractRoom = :contractRoom WHERE roomNumber = :roomNumber")
+    suspend fun addContractTenant(
+        roomNumber: String,
+        contractRoom: String
     )
 }
