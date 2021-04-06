@@ -92,4 +92,19 @@ interface ApartmentDao {
         roomNumber: String,
         paymentStatus: Boolean
     )
+
+    @Query("UPDATE Room SET roomOverdue = :roomOverdue WHERE roomNumber = :roomNumber")
+    suspend fun updateOverdueStatus(roomNumber: String, roomOverdue: Boolean)
+
+    @Query("DELETE FROM Tenant WHERE roomNumber = :roomNumber")
+    suspend fun deleteTenant(roomNumber: String)
+
+    @Query("UPDATE Room SET tenantName = :tenantName, roomStatus = :roomStatus, roomExitDate = :roomExitDate, roomOverdue = :roomOverdue WHERE roomNumber = :roomNumber")
+    suspend fun clearRoomData(
+        roomNumber: String,
+        tenantName: String,
+        roomStatus: Boolean,
+        roomExitDate: String,
+        roomOverdue: Boolean
+    )
 }

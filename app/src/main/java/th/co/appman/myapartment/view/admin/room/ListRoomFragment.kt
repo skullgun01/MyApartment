@@ -25,6 +25,7 @@ class ListRoomFragment : Fragment(), ListRoomAdapter.OnClickListener {
     lateinit var binding: FragmentListRoomBinding
     lateinit var listRoomAdapter: ListRoomAdapter
     private val vm: ListRoomViewModel by viewModel()
+    private var page = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +48,8 @@ class ListRoomFragment : Fragment(), ListRoomAdapter.OnClickListener {
 
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                vm.getStatusRoomByFloor(tab?.text.toString())
+                page = tab?.text.toString()
+                vm.getStatusRoomByFloor(page)
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
@@ -87,6 +89,10 @@ class ListRoomFragment : Fragment(), ListRoomAdapter.OnClickListener {
             listRoomAdapter.setListData(it)
         })
 
+        vm.updateStatusRoomLiveData.observe(viewLifecycleOwner, Observer {
+            vm.getStatusRoomByFloor(page)
+        })
+
         vm.loadingLiveData.observe(viewLifecycleOwner, Observer {
             if (it) {
                 binding.progressBar.visibility = View.VISIBLE
@@ -114,6 +120,13 @@ class ListRoomFragment : Fragment(), ListRoomAdapter.OnClickListener {
         val intent = Intent(requireContext(), AdminPaymentActivity::class.java).apply {
             putExtra(KEY_ROOM_ENTITY, roomEntity)
         }
-        startActivity(intent)
+        startActivityForResult(intent, 200)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 200) {
+            vm.callUpdateStatusRoom()
+        }
     }
 }

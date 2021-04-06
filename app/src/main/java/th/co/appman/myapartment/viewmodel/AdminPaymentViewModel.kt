@@ -7,6 +7,7 @@ import kotlinx.coroutines.launch
 import th.co.appman.myapartment.base.BaseViewModel
 import th.co.appman.myapartment.base.Constants
 import th.co.appman.myapartment.model.PaymentEntity
+import th.co.appman.myapartment.model.RoomEntity
 import th.co.appman.myapartment.model.TenantEntity
 import th.co.appman.myapartment.room.ApartmentDao
 
@@ -20,6 +21,8 @@ class AdminPaymentViewModel(private val apartmentDao: ApartmentDao) : BaseViewMo
     val sumRoomPriceLiveData: MutableLiveData<String> = MutableLiveData()
     val savePaymentRoomLiveData: MutableLiveData<Unit> = MutableLiveData()
     val updateStatusLiveData: MutableLiveData<Unit> = MutableLiveData()
+    val roomDetailLiveData: MutableLiveData<RoomEntity> = MutableLiveData()
+    val clearTenantDataLiveData: MutableLiveData<Unit> = MutableLiveData()
 
     fun getTenantData(roomNumber: String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -171,12 +174,52 @@ class AdminPaymentViewModel(private val apartmentDao: ApartmentDao) : BaseViewMo
         }
     }
 
+    fun updateOverdueRoom(roomNumber: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                apartmentDao.updateOverdueStatus(roomNumber, true)
+            } catch (e: Exception) {
+                errorLiveData.postValue(Constants.APPLICATION_ERROR)
+            }
+        }
+    }
+
     fun updateStatusPayment(roomNumber: String) {
         viewModelScope.launch(Dispatchers.IO) {
             loadingLiveData.postValue(true)
             try {
                 apartmentDao.updateStatusPaymentByRoom(roomNumber, true)
                 updateStatusLiveData.postValue(Unit)
+                loadingLiveData.postValue(false)
+            } catch (e: Exception) {
+                loadingLiveData.postValue(false)
+                errorLiveData.postValue(Constants.APPLICATION_ERROR)
+            }
+        }
+    }
+
+    fun getRoomDetail(roomNumber: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            loadingLiveData.postValue(true)
+            try {
+                val result = apartmentDao.getRoomDetail(roomNumber)
+                roomDetailLiveData.postValue(result)
+                loadingLiveData.postValue(false)
+            } catch (e: Exception) {
+                loadingLiveData.postValue(false)
+                errorLiveData.postValue(Constants.APPLICATION_ERROR)
+            }
+        }
+    }
+
+    fun deleteExitRoom(roomNumber: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            loadingLiveData.postValue(true)
+            try {
+                apartmentDao.updateStatusPaymentByRoom(roomNumber, true)
+                apartmentDao.deleteTenant(roomNumber)
+                apartmentDao.clearRoomData(roomNumber, "", false, "", false)
+                clearTenantDataLiveData.postValue(Unit)
                 loadingLiveData.postValue(false)
             } catch (e: Exception) {
                 loadingLiveData.postValue(false)

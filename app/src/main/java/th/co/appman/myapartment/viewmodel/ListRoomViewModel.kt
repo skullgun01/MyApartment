@@ -1,6 +1,5 @@
 package th.co.appman.myapartment.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -17,6 +16,7 @@ class ListRoomViewModel(private val apartmentDao: ApartmentDao) : BaseViewModel(
     val statusRoomLiveData: MutableLiveData<Triple<String, String, String>> = MutableLiveData()
     val amountFloorLiveData: MutableLiveData<MutableList<String>> = MutableLiveData()
     val roomByFloorLiveData: MutableLiveData<MutableList<RoomEntity>> = MutableLiveData()
+    val updateStatusRoomLiveData: MutableLiveData<Unit> = MutableLiveData()
 
     fun getAllRoom() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -25,6 +25,21 @@ class ListRoomViewModel(private val apartmentDao: ApartmentDao) : BaseViewModel(
                 val result = apartmentDao.getAllRoom()
                 roomEntity = result
                 allRoomLiveData.postValue(Unit)
+                loadingLiveData.postValue(false)
+            } catch (e: Exception) {
+                loadingLiveData.postValue(false)
+                errorLiveData.postValue(e.message)
+            }
+        }
+    }
+
+    fun callUpdateStatusRoom() {
+        viewModelScope.launch(Dispatchers.IO) {
+            loadingLiveData.postValue(true)
+            try {
+                val result = apartmentDao.getAllRoom()
+                roomEntity = result
+                updateStatusRoomLiveData.postValue(Unit)
                 loadingLiveData.postValue(false)
             } catch (e: Exception) {
                 loadingLiveData.postValue(false)

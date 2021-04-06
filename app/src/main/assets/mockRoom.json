@@ -5,7 +5,7 @@
     "tenantName": "นาย ทดสอบ 201",
     "roomStatus": true,
     "roomExitDate": "",
-    "roomOverdue": true,
+    "roomOverdue": false,
     "roomPrice": "6000"
   },
   {

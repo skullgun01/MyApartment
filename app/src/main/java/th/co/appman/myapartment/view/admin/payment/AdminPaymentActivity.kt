@@ -10,8 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import th.co.appman.myapartment.R
+import th.co.appman.myapartment.alert.AlertExitRoomDialogFragment
 import th.co.appman.myapartment.alert.AlertMessageDialogFragment
 import th.co.appman.myapartment.databinding.ActivityAdminPaymentBinding
+import th.co.appman.myapartment.model.PaymentEntity
 import th.co.appman.myapartment.model.RoomEntity
 import th.co.appman.myapartment.utils.randomNumber
 import th.co.appman.myapartment.view.admin.room.ListRoomFragment
@@ -49,6 +51,14 @@ class AdminPaymentActivity : AppCompatActivity() {
         vm.tenantLiveData.observe(this, Observer {
             binding.tvName.setText(it.tenantName)
             binding.tvTel.setText(it.tenantTel)
+        })
+
+        vm.roomDetailLiveData.observe(this, Observer {
+            if (it.roomOverdue) {
+                binding.tvOverdue.visibility = View.VISIBLE
+            } else {
+                binding.tvOverdue.visibility = View.GONE
+            }
         })
 
         vm.updateTenantLiveData.observe(this, Observer {
@@ -118,6 +128,7 @@ class AdminPaymentActivity : AppCompatActivity() {
             binding.btnSaveDataPrice.isEnabled = false
             binding.btnEditDataPrice.isEnabled = true
             updatePayment = false
+            vm.getRoomDetail(roomEntity.roomNumber)
             alertDialog(getString(R.string.alert_save_success))
         })
 
@@ -152,6 +163,16 @@ class AdminPaymentActivity : AppCompatActivity() {
             }
         })
 
+        vm.clearTenantDataLiveData.observe(this, Observer {
+            AlertMessageDialogFragment.Builder()
+                .setMessage(getString(R.string.alert_delete_success))
+                .setCallback {
+                    finish()
+                }
+                .build()
+                .show(supportFragmentManager, TAG)
+        })
+
         vm.loadingLiveData.observe(this, Observer {
             if (it) {
                 binding.progressBar.visibility = View.VISIBLE
@@ -167,6 +188,7 @@ class AdminPaymentActivity : AppCompatActivity() {
 
     private fun init() {
         vm.getTenantData(roomEntity.roomNumber)
+        vm.getRoomDetail(roomEntity.roomNumber)
 
         binding.tvRoomNumber.text = roomEntity.roomNumber
 
@@ -259,6 +281,10 @@ class AdminPaymentActivity : AppCompatActivity() {
             binding.tvPriceWater.clearFocus()
             binding.tvPriceElectric.clearFocus()
 
+            if (binding.tvOverduePrice.text.toString().isNotEmpty()) {
+                vm.updateOverdueRoom(roomEntity.roomNumber)
+            }
+
             vm.updateStatusPayment(roomEntity.roomNumber)
         }
 
@@ -269,6 +295,16 @@ class AdminPaymentActivity : AppCompatActivity() {
             binding.btnSaveDataPrice.isEnabled = true
 
             updatePayment = true
+        }
+
+        binding.btnCancelContact.setOnClickListener {
+            AlertExitRoomDialogFragment.Builder()
+                .setMessage(getString(R.string.message_exit_room, roomEntity.roomNumber))
+                .setCallback {
+                    vm.deleteExitRoom(roomEntity.roomNumber)
+                }
+                .build()
+                .show(supportFragmentManager, TAG)
         }
 
         binding.toolBar.layoutBack.setOnClickListener {

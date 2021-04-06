@@ -108,7 +108,7 @@ data class PaymentEntity(
     var electricityPrice: String? = "",
 
     @SerializedName("overduePrice")
-    var overduePrice: String? = "",
+    var overduePrice: String = "",
 
     @SerializedName("paymentDate")
     var paymentDate: String? = "",

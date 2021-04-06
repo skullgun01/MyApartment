@@ -39,6 +39,7 @@
     <string name="label_confirm_exit">ยืนยันแจ้งย้ายออก</string>
 
     <string name="btn_confirm">ตกลง</string>
+    <string name="btn_cancel">ยกเลิก</string>
     <string name="btn_save">บันทึก</string>
     <string name="btn_edit">แก้ไข</string>
     <string name="btn_cancel_contact">ยกเลิกสัญญา / ย้ายออก</string>
@@ -80,5 +81,8 @@
 
     <string name="btn_upload">Upload</string>
     <string name="label_upload">สัญญาเช่า</string>
+
+    <string name="message_exit_room">ต้องการลบข้อมูลห้อง %1$s ?</string>
+    <string name="alert_delete_success">ยกเลิกสัญญาเรียบร้อย</string>
 
 </resources>
