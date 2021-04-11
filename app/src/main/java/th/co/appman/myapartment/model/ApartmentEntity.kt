@@ -93,28 +93,28 @@ data class PaymentEntity(
     var roomNumber: String = "",
 
     @SerializedName("roomPrice")
-    var roomPrice: String? = "",
+    var roomPrice: String = "",
 
     @SerializedName("waterPoint")
-    var waterPoint: String? = "",
+    var waterPoint: String = "",
 
     @SerializedName("waterPrice")
-    var waterPrice: String? = "",
+    var waterPrice: String = "",
 
     @SerializedName("electricityPoint")
-    var electricityPoint: String? = "",
+    var electricityPoint: String = "",
 
     @SerializedName("electricityPrice")
-    var electricityPrice: String? = "",
+    var electricityPrice: String = "",
 
     @SerializedName("overduePrice")
     var overduePrice: String = "",
 
     @SerializedName("paymentDate")
-    var paymentDate: String? = "",
+    var paymentDate: String = "",
 
     @SerializedName("tenantName")
-    var tenantName: String? = "",
+    var tenantName: String = "",
 
     @SerializedName("paymentStatus")
     var paymentStatus: Boolean = false,

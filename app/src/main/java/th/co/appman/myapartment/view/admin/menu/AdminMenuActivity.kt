@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import th.co.appman.myapartment.databinding.ActivityAdminMenuBinding
+import th.co.appman.myapartment.view.admin.dashboard.DashboardFragment
 import th.co.appman.myapartment.view.admin.main.AdminMainFragment
 import th.co.appman.myapartment.view.admin.room.ListRoomFragment
 import th.co.appman.myapartment.view.login.LoginActivity
@@ -35,6 +36,7 @@ class AdminMenuActivity : AppCompatActivity() {
                         replaceFragment(ListRoomFragment.newInstance())
                     }
                     2 -> {
+                        replaceFragment(DashboardFragment.newInstance())
                     }
                     3 -> {
                         val intent = Intent(this@AdminMenuActivity, LoginActivity::class.java)

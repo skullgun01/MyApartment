@@ -114,4 +114,10 @@ interface ApartmentDao {
         roomNumber: String,
         contractRoom: String
     )
+
+    @Query("SELECT * FROM Payment")
+    suspend fun getAllPayment(): MutableList<PaymentEntity>
+
+    @Query("SELECT * FROM Payment WHERE paymentDate LIKE '%' || :paymentDate")
+    suspend fun getPaymentDataByDate(paymentDate: String): MutableList<PaymentEntity>
 }

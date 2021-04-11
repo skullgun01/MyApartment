@@ -40,4 +40,9 @@ val viewModelModule = module {
         val database: ApartmentDatabase = get()
         AdminPaymentViewModel(database.apartmentDao())
     }
+
+    viewModel {
+        val database: ApartmentDatabase = get()
+        DashboardViewModel(androidContext(), database.apartmentDao())
+    }
 }

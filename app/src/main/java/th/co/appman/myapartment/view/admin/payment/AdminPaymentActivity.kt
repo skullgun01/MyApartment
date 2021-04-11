@@ -309,7 +309,7 @@ class AdminPaymentActivity : AppCompatActivity() {
         mMonth = calendar.get(Calendar.MONTH)
         mYear = calendar.get(Calendar.YEAR)
 
-        val paymentData = "1/${mMonth + 1}/$mYear"
+        val paymentData = "1/${mMonth + 2}/$mYear"
         binding.etDataPay.setText(paymentData)
         vm.getPaymentData(roomEntity.roomNumber, paymentData)
     }

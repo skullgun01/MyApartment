@@ -88,4 +88,29 @@
     <string name="alert_contract_room_success">อัพโหลดสำเร็จ</string>
     <string name="alert_contract_room_fail">อัพโหลดไม่สำเร็จ</string>
 
+    <string name="label_all_payment">รายรับทั้งหมด</string>
+    <string name="label_sum_income">รวมรายรับ : %1$s บาท</string>
+    <string name="label_sum_water_expenses">ค่าน้ำที่จ่าย : %1$s บาท</string>
+    <string name="label_sum_electric_expenses">ค่าไฟที่จ่าย : %1$s บาท</string>
+    <string name="label_net_income">รายได้สุทธิ : %1$s บาท</string>
+
+    <string name="label_income_pie">รวมรายรับ\n%1$s บาท</string>
+    <string name="label_water_expenses_pie">ค่าน้ำที่จ่าย\n%1$s บาท</string>
+    <string name="label_electric_expenses_pie">ค่าไฟที่จ่าย\n%1$s บาท</string>
+
+    <array name="month">
+        <item>มกราคม</item>
+        <item>กุมภาพันธ์</item>
+        <item>มีนาคม</item>
+        <item>เมษายน</item>
+        <item>พฤษภาคม</item>
+        <item>มิถุนายน</item>
+        <item>กรกฎาคม</item>
+        <item>สิงหาคม</item>
+        <item>กันยายน</item>
+        <item>ตุลาคม</item>
+        <item>พฤศจิกายน</item>
+        <item>ธันวาคม</item>
+    </array>
+
 </resources>
