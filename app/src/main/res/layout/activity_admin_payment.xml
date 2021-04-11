@@ -7,7 +7,7 @@
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".view.admin.payment.AdminPaymentActivity">
+    tools:context="th.co.myapartment.view.admin.payment.AdminPaymentActivity">
 
     <include
         android:id="@+id/toolBar"
