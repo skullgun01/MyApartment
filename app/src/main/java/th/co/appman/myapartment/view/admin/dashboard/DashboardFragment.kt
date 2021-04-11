@@ -77,10 +77,12 @@ class DashboardFragment : Fragment() {
             val pieDataSet = PieDataSet(dataList, null).apply {
                 selectionShift = 10F
                 valueTextColor = 14
-                colors = MATERIAL_COLORS
+                setColors(MATERIAL_COLORS)
             }
 
             binding.picChart.data = PieData(pieDataSet)
+            binding.picChart.notifyDataSetChanged()
+            binding.picChart.invalidate()
 
             binding.tvSumIncome.text =
                 getString(R.string.label_sum_income, formatter.format(resultIncome).toString())
@@ -139,11 +141,10 @@ class DashboardFragment : Fragment() {
         binding.picChart.apply {
             holeRadius = 30F
             transparentCircleRadius = 40F
-            animateY(3000)
+            animateY(1000)
             description.isEnabled = false
             legend.isEnabled = false
             setEntryLabelTextSize(16F)
-            setDrawEntryLabels(true)
             setEntryLabelColor(R.color.black)
         }
     }
