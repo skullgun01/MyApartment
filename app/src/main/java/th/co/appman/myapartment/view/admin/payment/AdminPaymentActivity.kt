@@ -1,5 +1,6 @@
 package th.co.appman.myapartment.view.admin.payment
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -9,6 +10,11 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import th.co.appman.myapartment.R
 import th.co.appman.myapartment.alert.AlertExitRoomDialogFragment
@@ -287,14 +293,31 @@ class AdminPaymentActivity : AppCompatActivity() {
         }
 
         binding.btnUploadContact.setOnClickListener {
-            val intent = Intent().apply {
-                action = Intent.ACTION_GET_CONTENT
-                type = "application/pdf"
-            }
-            startActivityForResult(
-                Intent.createChooser(intent, "Select photo from"),
-                REQUEST_GALLERY
+            Dexter.withContext(this).withPermissions(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
             )
+                .withListener(object : MultiplePermissionsListener {
+                    override fun onPermissionsChecked(report: MultiplePermissionsReport) {
+                        if (report.areAllPermissionsGranted()) {
+                            val intent = Intent().apply {
+                                action = Intent.ACTION_GET_CONTENT
+                                type = "application/pdf"
+                            }
+                            startActivityForResult(
+                                Intent.createChooser(intent, "Select photo from"),
+                                REQUEST_GALLERY
+                            )
+                        }
+                    }
+
+                    override fun onPermissionRationaleShouldBeShown(
+                        permissions: MutableList<PermissionRequest>,
+                        token: PermissionToken
+                    ) {
+                        token.continuePermissionRequest()
+                    }
+                }).check()
         }
 
         binding.toolBar.layoutBack.setOnClickListener {
