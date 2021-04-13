@@ -46,12 +46,12 @@ class ExitRoomActivity : AppCompatActivity() {
     private fun observeData() {
         vm.updateExitRoomLiveData.observe(this, Observer {
             AlertMessageDialogFragment.Builder()
-                .setMessage(getString(R.string.label_noti_exit_room))
-                .setCallback {
-                    finish()
-                }
-                .build()
-                .show(supportFragmentManager, TAG)
+                    .setMessage(getString(R.string.label_noti_exit_room))
+                    .setCallback {
+                        finish()
+                    }
+                    .build()
+                    .show(supportFragmentManager, TAG)
         })
 
         vm.loadingLiveData.observe(this, Observer {
@@ -64,9 +64,9 @@ class ExitRoomActivity : AppCompatActivity() {
 
         vm.errorLiveData.observe(this, Observer {
             AlertMessageDialogFragment.Builder()
-                .setMessage(it)
-                .build()
-                .show(supportFragmentManager, TAG)
+                    .setMessage(it)
+                    .build()
+                    .show(supportFragmentManager, TAG)
         })
     }
 
@@ -80,15 +80,15 @@ class ExitRoomActivity : AppCompatActivity() {
         binding.etExitDate.setOnClickListener {
             val calendar = Calendar.getInstance()
             mDay = calendar.get(Calendar.DAY_OF_MONTH)
-            mMonth = calendar.get(Calendar.MONTH)
+            mMonth = (calendar.get(Calendar.MONTH))
             mYear = calendar.get(Calendar.YEAR)
 
             val datePicker = DatePickerDialog(
-                this,
-                { _, year, month, dayOfMonth ->
-                    val date = "$dayOfMonth/$month/$year"
-                    binding.etExitDate.setText(date)
-                }, mYear, mMonth, mDay
+                    this,
+                    { _, year, month, dayOfMonth ->
+                        val date = "$dayOfMonth/${month + 1}/$year"
+                        binding.etExitDate.setText(date)
+                    }, mYear, mMonth, mDay
             )
 
             datePicker.datePicker.minDate = System.currentTimeMillis() - 1000
@@ -100,9 +100,9 @@ class ExitRoomActivity : AppCompatActivity() {
                 vm.updateExitDateRoom(roomNumber, binding.etExitDate.text.toString().trim())
             } else {
                 AlertMessageDialogFragment.Builder()
-                    .setMessage(getString(R.string.label_please_select_date))
-                    .build()
-                    .show(supportFragmentManager, TAG)
+                        .setMessage(getString(R.string.label_please_select_date))
+                        .build()
+                        .show(supportFragmentManager, TAG)
             }
         }
 

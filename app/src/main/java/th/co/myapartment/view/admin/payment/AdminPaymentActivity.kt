@@ -76,32 +76,58 @@ class AdminPaymentActivity : AppCompatActivity() {
         vm.paymentLiveData.observe(this, Observer {
             transectionNumber = it.transectionNumber
 
-            binding.tvPriceWater.apply {
-                isEnabled = false
-                setText(it.waterPoint)
+            if (it.paymentStatus) {
+                binding.btnConfirmPayment.isEnabled = false
+
+                binding.tvPriceWater.apply {
+                    isEnabled = false
+                    setText("")
+                }
+
+                binding.tvSumWater.text = ""
+
+                binding.tvPriceElectric.apply {
+                    isEnabled = false
+                    setText("")
+                }
+
+                binding.tvSumElectric.text = ""
+
+                binding.tvOverduePrice.text = ""
+
+                binding.btnSaveDataPrice.isEnabled = false
+
+                binding.btnEditDataPrice.isEnabled = false
+            } else {
+                binding.btnConfirmPayment.isEnabled = true
+
+                binding.tvPriceWater.apply {
+                    isEnabled = false
+                    setText(it.waterPoint)
+                }
+
+                binding.tvSumWater.text = it.waterPrice
+
+                binding.tvPriceElectric.apply {
+                    isEnabled = false
+                    setText(it.electricityPoint)
+                }
+
+                binding.tvSumElectric.text = it.electricityPrice
+
+                binding.tvOverduePrice.text = it.overduePrice
+
+                binding.btnSaveDataPrice.isEnabled = false
+
+                binding.btnEditDataPrice.isEnabled = !it.paymentStatus
+
+                vm.sumPriceRoom(
+                        binding.tvPriceRoom.text.toString().toIntOrNull() ?: 0,
+                        binding.tvSumWater.text.toString().toIntOrNull() ?: 0,
+                        binding.tvSumElectric.text.toString().toIntOrNull() ?: 0,
+                        binding.tvOverduePrice.text.toString().toIntOrNull() ?: 0
+                )
             }
-
-            binding.tvSumWater.text = it.waterPrice
-
-            binding.tvPriceElectric.apply {
-                isEnabled = false
-                setText(it.electricityPoint)
-            }
-
-            binding.tvSumElectric.text = it.electricityPrice
-
-            binding.tvOverduePrice.text = it.overduePrice
-
-            binding.btnSaveDataPrice.isEnabled = false
-
-            binding.btnEditDataPrice.isEnabled = !it.paymentStatus
-
-            vm.sumPriceRoom(
-                binding.tvPriceRoom.text.toString().toIntOrNull() ?: 0,
-                binding.tvSumWater.text.toString().toIntOrNull() ?: 0,
-                binding.tvSumElectric.text.toString().toIntOrNull() ?: 0,
-                binding.tvOverduePrice.text.toString().toIntOrNull() ?: 0
-            )
         })
 
         vm.paymentEmptyLiveData.observe(this, Observer {
@@ -111,14 +137,15 @@ class AdminPaymentActivity : AppCompatActivity() {
             binding.btnEditDataPrice.isEnabled = false
 
             vm.sumPriceRoom(
-                binding.tvPriceRoom.text.toString().toIntOrNull() ?: 0,
-                binding.tvSumWater.text.toString().toIntOrNull() ?: 0,
-                binding.tvSumElectric.text.toString().toIntOrNull() ?: 0,
-                binding.tvOverduePrice.text.toString().toIntOrNull() ?: 0
+                    binding.tvPriceRoom.text.toString().toIntOrNull() ?: 0,
+                    binding.tvSumWater.text.toString().toIntOrNull() ?: 0,
+                    binding.tvSumElectric.text.toString().toIntOrNull() ?: 0,
+                    binding.tvOverduePrice.text.toString().toIntOrNull() ?: 0
             )
         })
 
         vm.sumOverdueLiveData.observe(this, Observer {
+            binding.btnConfirmPayment.isEnabled = true
             binding.tvOverduePrice.text = it
         })
 
@@ -127,6 +154,7 @@ class AdminPaymentActivity : AppCompatActivity() {
         })
 
         vm.savePaymentRoomLiveData.observe(this, Observer {
+            binding.btnConfirmPayment.isEnabled = true
             binding.tvPriceWater.isEnabled = false
             binding.tvPriceElectric.isEnabled = false
             binding.btnSaveDataPrice.isEnabled = false
@@ -139,46 +167,73 @@ class AdminPaymentActivity : AppCompatActivity() {
         vm.updateStatusLiveData.observe(this, Observer {
             if (updatePayment) {
                 vm.updatePaymentPriceRoom(
-                    transectionNumber,
-                    binding.tvPriceWater.text.toString(),
-                    binding.tvSumWater.text.toString(),
-                    binding.tvPriceElectric.text.toString(),
-                    binding.tvSumElectric.text.toString(),
-                    binding.tvOverduePrice.text.toString(),
-                    binding.etDataPay.text.toString(),
-                    binding.tvName.text.toString(),
-                    binding.tvSum.text.toString()
+                        transectionNumber,
+                        binding.tvPriceWater.text.toString(),
+                        binding.tvSumWater.text.toString(),
+                        binding.tvPriceElectric.text.toString(),
+                        binding.tvSumElectric.text.toString(),
+                        binding.tvOverduePrice.text.toString(),
+                        binding.etDataPay.text.toString(),
+                        binding.tvName.text.toString(),
+                        binding.tvSum.text.toString()
                 )
             } else {
                 transectionNumber = randomNumber().toString()
                 vm.savePaymentPriceRoom(
-                    transectionNumber,
-                    roomEntity.roomNumber,
-                    binding.tvPriceRoom.text.toString(),
-                    binding.tvPriceWater.text.toString(),
-                    binding.tvSumWater.text.toString(),
-                    binding.tvPriceElectric.text.toString(),
-                    binding.tvSumElectric.text.toString(),
-                    binding.tvOverduePrice.text.toString(),
-                    binding.etDataPay.text.toString(),
-                    binding.tvName.text.toString(),
-                    binding.tvSum.text.toString()
+                        transectionNumber,
+                        roomEntity.roomNumber,
+                        binding.tvPriceRoom.text.toString(),
+                        binding.tvPriceWater.text.toString(),
+                        binding.tvSumWater.text.toString(),
+                        binding.tvPriceElectric.text.toString(),
+                        binding.tvSumElectric.text.toString(),
+                        binding.tvOverduePrice.text.toString(),
+                        binding.etDataPay.text.toString(),
+                        binding.tvName.text.toString(),
+                        binding.tvSum.text.toString()
                 )
             }
         })
 
         vm.clearTenantDataLiveData.observe(this, Observer {
             AlertMessageDialogFragment.Builder()
-                .setMessage(getString(R.string.alert_delete_success))
-                .setCallback {
-                    finish()
-                }
-                .build()
-                .show(supportFragmentManager, TAG)
+                    .setMessage(getString(R.string.alert_delete_success))
+                    .setCallback {
+                        finish()
+                    }
+                    .build()
+                    .show(supportFragmentManager, TAG)
         })
 
         vm.addContractRoomLiveData.observe(this, Observer {
             alertDialog(getString(R.string.alert_contract_room_success))
+        })
+
+        vm.confirmPaymentLiveData.observe(this, Observer {
+            alertDialog(getString(R.string.btn_confirm_payment))
+
+            binding.btnConfirmPayment.isEnabled = false
+
+            binding.tvPriceWater.apply {
+                isEnabled = false
+                setText("")
+            }
+
+            binding.tvSumWater.text = ""
+
+            binding.tvPriceElectric.apply {
+                isEnabled = false
+                setText("")
+            }
+
+            binding.tvSumElectric.text = ""
+
+            binding.tvOverduePrice.text = ""
+
+            binding.btnSaveDataPrice.isEnabled = false
+            binding.btnEditDataPrice.isEnabled = false
+
+            initPaymentDate()
         })
 
         vm.loadingLiveData.observe(this, Observer {
@@ -213,9 +268,9 @@ class AdminPaymentActivity : AppCompatActivity() {
 
         binding.btnSaveDataTenant.setOnClickListener {
             vm.updateTenantData(
-                roomEntity.roomNumber,
-                binding.tvName.text.toString(),
-                binding.tvTel.text.toString()
+                    roomEntity.roomNumber,
+                    binding.tvName.text.toString(),
+                    binding.tvTel.text.toString()
             )
         }
 
@@ -226,13 +281,13 @@ class AdminPaymentActivity : AppCompatActivity() {
 
             override fun onTextChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
                 binding.tvSumWater.text =
-                    ((text.toString().toIntOrNull() ?: 0) * 20).toString()
+                        ((text.toString().toIntOrNull() ?: 0) * 20).toString()
 
                 vm.sumPriceRoom(
-                    binding.tvPriceRoom.text.toString().toIntOrNull() ?: 0,
-                    binding.tvSumWater.text.toString().toIntOrNull() ?: 0,
-                    binding.tvSumElectric.text.toString().toIntOrNull() ?: 0,
-                    binding.tvOverduePrice.text.toString().toIntOrNull() ?: 0
+                        binding.tvPriceRoom.text.toString().toIntOrNull() ?: 0,
+                        binding.tvSumWater.text.toString().toIntOrNull() ?: 0,
+                        binding.tvSumElectric.text.toString().toIntOrNull() ?: 0,
+                        binding.tvOverduePrice.text.toString().toIntOrNull() ?: 0
                 )
             }
 
@@ -244,13 +299,13 @@ class AdminPaymentActivity : AppCompatActivity() {
 
             override fun onTextChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
                 binding.tvSumElectric.text =
-                    ((text.toString().toIntOrNull() ?: 0) * 5).toString()
+                        ((text.toString().toIntOrNull() ?: 0) * 5).toString()
 
                 vm.sumPriceRoom(
-                    binding.tvPriceRoom.text.toString().toIntOrNull() ?: 0,
-                    binding.tvSumWater.text.toString().toIntOrNull() ?: 0,
-                    binding.tvSumElectric.text.toString().toIntOrNull() ?: 0,
-                    binding.tvOverduePrice.text.toString().toIntOrNull() ?: 0
+                        binding.tvPriceRoom.text.toString().toIntOrNull() ?: 0,
+                        binding.tvSumWater.text.toString().toIntOrNull() ?: 0,
+                        binding.tvSumElectric.text.toString().toIntOrNull() ?: 0,
+                        binding.tvOverduePrice.text.toString().toIntOrNull() ?: 0
                 )
             }
 
@@ -279,40 +334,44 @@ class AdminPaymentActivity : AppCompatActivity() {
 
         binding.btnCancelContact.setOnClickListener {
             AlertExitRoomDialogFragment.Builder()
-                .setMessage(getString(R.string.message_exit_room, roomEntity.roomNumber))
-                .setCallback {
-                    vm.deleteExitRoom(roomEntity.roomNumber)
-                }
-                .build()
-                .show(supportFragmentManager, TAG)
+                    .setMessage(getString(R.string.message_exit_room, roomEntity.roomNumber))
+                    .setCallback {
+                        vm.deleteExitRoom(roomEntity.roomNumber)
+                    }
+                    .build()
+                    .show(supportFragmentManager, TAG)
         }
 
         binding.btnUploadContact.setOnClickListener {
             Dexter.withContext(this).withPermissions(
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
             )
-                .withListener(object : MultiplePermissionsListener {
-                    override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                        if (report.areAllPermissionsGranted()) {
-                            val intent = Intent().apply {
-                                action = Intent.ACTION_GET_CONTENT
-                                type = "application/pdf"
+                    .withListener(object : MultiplePermissionsListener {
+                        override fun onPermissionsChecked(report: MultiplePermissionsReport) {
+                            if (report.areAllPermissionsGranted()) {
+                                val intent = Intent().apply {
+                                    action = Intent.ACTION_GET_CONTENT
+                                    type = "application/pdf"
+                                }
+                                startActivityForResult(
+                                        Intent.createChooser(intent, "Select photo from"),
+                                        REQUEST_GALLERY
+                                )
                             }
-                            startActivityForResult(
-                                Intent.createChooser(intent, "Select photo from"),
-                                REQUEST_GALLERY
-                            )
                         }
-                    }
 
-                    override fun onPermissionRationaleShouldBeShown(
-                        permissions: MutableList<PermissionRequest>,
-                        token: PermissionToken
-                    ) {
-                        token.continuePermissionRequest()
-                    }
-                }).check()
+                        override fun onPermissionRationaleShouldBeShown(
+                                permissions: MutableList<PermissionRequest>,
+                                token: PermissionToken
+                        ) {
+                            token.continuePermissionRequest()
+                        }
+                    }).check()
+        }
+
+        binding.btnConfirmPayment.setOnClickListener {
+            vm.callConfirmPayment(roomEntity.roomNumber)
         }
 
         binding.toolBar.layoutBack.setOnClickListener {
@@ -334,9 +393,9 @@ class AdminPaymentActivity : AppCompatActivity() {
 
     private fun alertDialog(message: String) {
         AlertMessageDialogFragment.Builder()
-            .setMessage(message)
-            .build()
-            .show(supportFragmentManager, TAG)
+                .setMessage(message)
+                .build()
+                .show(supportFragmentManager, TAG)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

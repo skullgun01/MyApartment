@@ -174,10 +174,24 @@
                 android:background="@drawable/bg_button_base"
                 android:enabled="false"
                 android:text="@string/btn_cancel_contact"
-                app:layout_constraintBottom_toTopOf="@+id/layoutPayment"
+                app:layout_constraintBottom_toTopOf="@+id/btnConfirmPayment"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layoutContent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnConfirmPayment"
+                style="@style/text_16sp_white"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_10dp"
+                android:background="@drawable/bg_button_green"
+                android:enabled="false"
+                android:text="@string/btn_confirm_payment"
+                app:layout_constraintBottom_toTopOf="@+id/layoutPayment"
+                app:layout_constraintEnd_toEndOf="@+id/btnCancelContact"
+                app:layout_constraintStart_toStartOf="@+id/btnCancelContact"
+                app:layout_constraintTop_toBottomOf="@+id/btnCancelContact" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutPayment"
@@ -189,7 +203,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/btnUploadContact"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnCancelContact">
+                app:layout_constraintTop_toBottomOf="@+id/btnConfirmPayment">
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideLinePayment"

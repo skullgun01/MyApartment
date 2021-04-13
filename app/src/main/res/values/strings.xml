@@ -43,6 +43,7 @@
     <string name="btn_save">บันทึก</string>
     <string name="btn_edit">แก้ไข</string>
     <string name="btn_cancel_contact">ยกเลิกสัญญา / ย้ายออก</string>
+    <string name="btn_confirm_payment">ชำระเงินเรียบร้อย</string>
 
     <string name="label_check_login">รหัสผ่านผิด</string>
     <string name="label_check_room_status">ห้องพักว่าง</string>
